@@ -35,7 +35,7 @@ ENGLISH ?= american # or british
 
 all: test
 
-test: writing latex style
+test: writing latex
 
 writing: writing.$(ENGLISH) writing.common-mistakes writing.consistency writing.use-commands
 
