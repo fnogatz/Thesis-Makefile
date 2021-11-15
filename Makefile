@@ -159,6 +159,8 @@ latex:
 	@! grep -Ri --exclude=*.log --exclude=*.pdf --exclude=*.png '~ ' $(SOURCES)
 	# Avoid trailing spaces
 	@! grep -R --include=*.tex -E ' $$' $(SOURCES)
+	# Avoid trailing tabs
+	@! grep -R --include=*.tex -P '\t$$' $(SOURCES)
 	# Use `~--` instead of ` --`
 	@! grep -R --include=*.tex -E ' --[^>]' $(SOURCES)
 	# Use tilde in beginning of sentence `A~...` to avoid line breaks in-between
