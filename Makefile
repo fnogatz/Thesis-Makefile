@@ -130,9 +130,7 @@ writing.common-mistakes:
 
 writing.use-commands: # when defining new commands make sure to use them on all occasions
 	# Use `\ie` instead of `i.e.`
-	@! grep -Ri --include=*.tex 'i\.e\.' $(SOURCES)
-	# Use `\eg` instead of `e.g.`
-	@! grep -Ri --include=*.tex 'e\.g\.' $(SOURCES)
+	# @! grep -Ri --include=*.tex 'i\.e\.' $(SOURCES)
 
 latex:
 	# --- Consistent LaTeX styling ---
