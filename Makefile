@@ -70,7 +70,7 @@ writing.british:
 	# Use `honour` instead of `honor`
 	@! grep -Ri --include=*.tex 'honor' $(SOURCES)
 	# Use `colour` instead of `color` (but allow command `\color` if set anywhere)
-	@! grep -Ri --include=*.tex -E '(^|[^\\])color' $(SOURCES)
+	@! grep -Ri --include=*.tex -E '(^|[^\\]).*color' $(SOURCES)
 	# Use `organised` etc. instead of `organized`
 	@! grep -Ri --include=*.tex 'organiz[ae]' $(SOURCES)
 	# Use `the other way round` instead of `the other way around`
@@ -91,7 +91,7 @@ writing.american:
 	# Use `honor` instead of `honour`
 	@! grep -Ri --include=*.tex 'honour' $(SOURCES)
 	# Use `color` instead of `colour` (but allow command `\colour` if set anywhere)
-	@! grep -Ri --include=*.tex -E '(^|[^\\])colour' $(SOURCES)
+	@! grep -Ri --include=*.tex -E '(^|[^\\]).*colour' $(SOURCES)
 	# Use `organized` etc. instead of `organised`
 	@! grep -Ri --include=*.tex 'organis[ae]' $(SOURCES)
 	# Use `the other way around` instead of `the other way round`
