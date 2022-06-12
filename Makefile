@@ -69,8 +69,10 @@ writing.british:
 	@! grep -Ri --include=*.tex 'flavor' $(SOURCES)
 	# Use `honour` instead of `honor`
 	@! grep -Ri --include=*.tex 'honor' $(SOURCES)
+	# Use suffix `isation` instead of `ization`
+	@! grep -Ri --include=*.tex 'ization' $(SOURCES)
 	# Use `colour` instead of `color` (but allow command `\color` if set anywhere)
-	@! grep -Ri --include=*.tex -E '(^|[^\\]).*color' $(SOURCES)
+	@! grep -Ri --include=*.tex ' color' $(SOURCES)
 	# Use `organised` etc. instead of `organized`
 	@! grep -Ri --include=*.tex 'organiz[ae]' $(SOURCES)
 	# Use `the other way round` instead of `the other way around`
@@ -90,8 +92,10 @@ writing.american:
 	@! grep -Ri --include=*.tex 'flavour' $(SOURCES)
 	# Use `honor` instead of `honour`
 	@! grep -Ri --include=*.tex 'honour' $(SOURCES)
+	# Use suffix `ization` instead of `isation`
+	@! grep -Ri --include=*.tex 'isation' $(SOURCES)
 	# Use `color` instead of `colour` (but allow command `\colour` if set anywhere)
-	@! grep -Ri --include=*.tex -E '(^|[^\\]).*colour' $(SOURCES)
+	@! grep -Ri --include=*.tex ' colour' $(SOURCES)
 	# Use `organized` etc. instead of `organised`
 	@! grep -Ri --include=*.tex 'organis[ae]' $(SOURCES)
 	# Use `the other way around` instead of `the other way round`
