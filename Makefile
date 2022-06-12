@@ -93,7 +93,7 @@ writing.american:
 	# Use `color` instead of `colour` (but allow command `\colour` if set anywhere)
 	@! grep -Ri --include=*.tex -E '(^|[^\\])colour' $(SOURCES)
 	# Use `organized` etc. instead of `organised`
-	@! grep -Ri --include=*.tex 'organis' $(SOURCES)
+	@! grep -Ri --include=*.tex 'organis[ae]' $(SOURCES)
 	# Use `the other way around` instead of `the other way round`
 	@! grep -Ri --include=*.tex 'the other way round' $(SOURCES)
 
