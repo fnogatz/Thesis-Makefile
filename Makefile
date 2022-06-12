@@ -144,7 +144,7 @@ latex:
 	@! grep -Ri --include=*.tex -E '\\footnote{([^%]|$$)' $(SOURCES)
 	@! grep -Ri --include=*.tex -E '\\footnotetext{([^%]|$$)' $(SOURCES)
 	# Use `\cref` instead of `\ref` (except `\ref{ftn:})` to explicitly reference a footnote
-	@! grep -Ri --include=*.tex -P '\\ref{(?!ftn).' $(SOURCES)
+	@! grep -Ri --include=*.tex -P '[~ ]\\ref{(?!ftn).' $(SOURCES)
 	# Use `--,` instead of `--~,`
 	@! grep -Ri --include=*.tex -E '\-\-[~ ],' $(SOURCES)
 	# Use `$\mathcal{O}(...)$` instead of `O(...)` for big O notation (landau notation)
@@ -152,7 +152,7 @@ latex:
 	# Put all options of `\lstinputlisting` and `\lstlisting` in a single line
 	@! grep -Ri --include=*.tex -E '\(cf)?lst(input)?listing\[$$' $(SOURCES)
 	# All `\lstinputlisting` and `\lstlisting` should have option `language=` set
-	@! (grep -Ri --include=*.tex -E '(\\(cf)?lst(input?)listing|\\begin\{lstlisting\})' $(SOURCES) | grep -iv 'language=')
+	@! (grep -Ri --include=*.tex -E '(\\(cf)?lst(input?)listing(\\{|\\[[^#])|\\begin\{lstlisting\})' $(SOURCES) | grep -iv 'language=')
 	# Start each sentence on a separate line
 	@! grep -R --include=*.tex -R -E '^[^%]*\. [A-Z]' $(SOURCES)
 	# Avoid ` ~`
@@ -164,7 +164,7 @@ latex:
 	# Avoid trailing tabs
 	@! grep -R --include=*.tex -P '\t$$' $(SOURCES)
 	# Use `~--` instead of ` --`
-	@! grep -R --include=*.tex -E ' --[^>]' $(SOURCES)
+	@! grep -R --include=*.tex -E ' --[^>\\-]' $(SOURCES)
 	# Use tilde in beginning of sentence `A~...` to avoid line breaks in-between
 	@! grep -R --include=*.tex -E '^A ' $(SOURCES)
 	# Use tilde in `a~...` after comma and colon to avoid line breaks in-between
